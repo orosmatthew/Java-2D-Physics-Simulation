@@ -14,6 +14,7 @@ public class Draw extends JComponent {
         }
     }
 
+    @Override
     public void paint(Graphics g) {
         for (DrawObject o: drawObjects) {
             o.drawObject(g);

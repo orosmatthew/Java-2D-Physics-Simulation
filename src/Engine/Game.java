@@ -14,6 +14,8 @@ public class Game {
         windowSize = new Vector2(500, 500);
         isResizable = false;
         backgroundColor = Color.BLACK;
+        SwingUtilities.updateComponentTreeUI(window);
+        window.getContentPane().add(draw);
     }
 
     public void addGameObject(GameObject gameObject) {
@@ -60,6 +62,18 @@ public class Game {
         window.setResizable(isResizable);
         window.setVisible(true);
         window.getContentPane().setBackground(backgroundColor);
+    }
+
+    public void loop() throws InterruptedException {
+        while (true) {
+            for (GameObject o : gameObjects) {
+                o.process(1f);
+            }
+
+            draw.paintImmediately(0, 0, (int)windowSize.getX(), (int)windowSize.getY());
+
+            Thread.sleep((long)16.6);
+        }
     }
 
 }

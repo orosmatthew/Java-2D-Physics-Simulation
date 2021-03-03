@@ -2,16 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0327acec-e83f-44c2-b18e-f6300d1c9c71" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Engine/Draw.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Engine/DrawObject.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Engine/Game.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Engine/GameObject.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Engine/SquarePrimitive.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Engine/Vector2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java-2D-Physics-Simulation.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Java-2D-Physics-Simulation.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Engine/Draw.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Engine/Draw.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Engine/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Engine/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -93,8 +86,10 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$/IdeaProjects/SwingTesting" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true">
@@ -134,16 +129,6 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Engine/Draw.java</url>
-          <line>18</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>
