@@ -1,6 +1,12 @@
+import Engine.Game;
+import Engine.SquarePrimitive;
+
 public class Main {
 
     public static void main(String[] args) {
-	// write your code here
+        Game game = new Game();
+        game.createWindow();
+        SquarePrimitive square = new SquarePrimitive();
+        game.addGameObject(square);
     }
 }
