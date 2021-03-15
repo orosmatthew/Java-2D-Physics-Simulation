@@ -4,76 +4,52 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 
-public class Game {
+public abstract class Game {
 
-    private JFrame window = new JFrame("Testing");
-    private Draw draw = new Draw();
-    private ArrayList<GameObject> gameObjects = new ArrayList<>();
+    private ArrayList<GameObject> gameObjects;
+    private Window window;
+    private Canvas canvas;
 
-    public Game() {
-        windowSize = new Vector2(500, 500);
-        isResizable = false;
-        backgroundColor = Color.BLACK;
-        SwingUtilities.updateComponentTreeUI(window);
-        window.getContentPane().add(draw);
+    public Game(Window window, Canvas canvas) {
+        this.window = window;
+        this.canvas = canvas;
+        this.gameObjects = new ArrayList<>();
+        init();
     }
 
-    public void addGameObject(GameObject gameObject) {
+    public final void addGameObject(GameObject gameObject) {
         if (!gameObjects.contains(gameObject)) {
             gameObjects.add(gameObject);
         }
-        if (gameObject instanceof DrawObject) {
-            draw.addDrawObject((DrawObject)gameObject);
-        }
 
     }
 
-    private Vector2 windowSize;
-    private boolean isResizable;
-    private Color backgroundColor;
-
-    public Vector2 getWindowSize() {
-        return windowSize;
+    public final void addCanvasObject(DrawObject drawObject) {
+        addGameObject(drawObject);
+        canvas.addDrawObject(drawObject);
     }
 
-    public void setWindowSize(Vector2 windowSize) {
-        this.windowSize = windowSize;
-    }
-
-    public boolean isResizable() {
-        return isResizable;
-    }
-
-    public void setResizable(boolean resizable) {
-        isResizable = resizable;
-    }
-
-    public Color getBackgroundColor() {
-        return backgroundColor;
-    }
-
-    public void setBackgroundColor(Color backgroundColor) {
-        this.backgroundColor = backgroundColor;
-    }
-
-    public void createWindow() {
-        window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        window.setSize((int)windowSize.getX(), (int)windowSize.getY());
-        window.setResizable(isResizable);
-        window.setVisible(true);
-        window.getContentPane().setBackground(backgroundColor);
-    }
-
-    public void loop() throws InterruptedException {
+    public final void startLoop() {
         while (true) {
+
+            process(1f);
+
             for (GameObject o : gameObjects) {
                 o.process(1f);
             }
 
-            draw.paintImmediately(0, 0, (int)windowSize.getX(), (int)windowSize.getY());
+            canvas.paintImmediately(0, 0, (int)window.getWindowSize().getX(), (int)window.getWindowSize().getY());
 
-            Thread.sleep((long)16.6);
+            try {
+                Thread.sleep((long)16.6);
+            } catch (InterruptedException e) {
+                System.err.println("Interrupted!: " + e.getMessage());;
+            }
         }
     }
+
+    public abstract void init();
+
+    public abstract void process(float delta);
 
 }

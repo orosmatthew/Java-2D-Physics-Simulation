@@ -1,12 +1,15 @@
-import Engine.*;
+import Engine.Canvas;
+import Engine.Type.Vector2;
+import Engine.Window;
 
+import java.awt.*;
 public class Main {
 
-    public static void main(String[] args) throws InterruptedException {
+
         Game game = new Game();
-        game.createWindow();
-        SquarePrimitive square = new SquarePrimitive(new Vector2(0, 0), new Vector2(50, 50));
-        game.addGameObject(square);
-        game.loop();
+        Canvas canvas = new Canvas();
+        Window window = new Window(canvas, new Vector2(500, 500), false, Color.BLACK);
+        window.createWindow();
+        Java2DPhysicsSimulation java2DPhysicsSimulation = new Java2DPhysicsSimulation(window, canvas);
     }
 }
