@@ -30,6 +30,6 @@ public class SquarePrimitive extends CanvasObject {
 
     @Override
     public void process(double delta) {
-
+        position.setX((float)(position.getX() + (0.1 * delta)));
     }
 }
