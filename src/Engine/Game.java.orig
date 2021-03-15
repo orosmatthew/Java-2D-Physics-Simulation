@@ -21,11 +21,14 @@ public abstract class Game {
         if (!gameObjects.contains(gameObject)) {
             gameObjects.add(gameObject);
         }
+<<<<<<< HEAD
+=======
     }
+>>>>>>> b3e01fb5232eefda67babf1543b769f55f597000
+
     public void addDrawObject(DrawObject drawObject) {
         addGameObject(drawObject);
         draw.addDrawObject(drawObject);
-
     }
 
     public final void addCanvasObject(DrawObject drawObject) {
@@ -36,10 +39,23 @@ public abstract class Game {
     public final void startLoop() {
         while (true) {
 
+<<<<<<< HEAD
             process(1f);
+
+=======
+    public void createWindow() {
+        window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        //window.setSize((int)windowSize.getX(), (int)windowSize.getY());
         window.getContentPane().setPreferredSize(new Dimension((int)windowSize.getX(), (int)windowSize.getY()));
         window.pack();
+        window.setResizable(isResizable);
+        window.setVisible(true);
+        window.getContentPane().setBackground(backgroundColor);
+    }
 
+    public void startLoop() throws InterruptedException {
+        while (true) {
+>>>>>>> b3e01fb5232eefda67babf1543b769f55f597000
             for (GameObject o : gameObjects) {
                 o.process(1f);
             }
