@@ -1,7 +1,8 @@
 package Engine;
 
-import javax.swing.*;
-import java.awt.*;
+import Engine.Object.CanvasObject;
+import Engine.Object.GameObject;
+
 import java.util.ArrayList;
 
 public abstract class Game {
@@ -22,23 +23,21 @@ public abstract class Game {
             gameObjects.add(gameObject);
         }
     }
-    public void addDrawObject(DrawObject drawObject) {
-        addGameObject(drawObject);
-        draw.addDrawObject(drawObject);
+    public void addDrawObject(CanvasObject canvasObject) {
+        addGameObject(canvasObject);
+        canvas.addDrawObject(canvasObject);
 
     }
 
-    public final void addCanvasObject(DrawObject drawObject) {
-        addGameObject(drawObject);
-        canvas.addDrawObject(drawObject);
+    public final void addCanvasObject(CanvasObject canvasObject) {
+        addGameObject(canvasObject);
+        canvas.addDrawObject(canvasObject);
     }
 
     public final void startLoop() {
         while (true) {
 
             process(1f);
-        window.getContentPane().setPreferredSize(new Dimension((int)windowSize.getX(), (int)windowSize.getY()));
-        window.pack();
 
             for (GameObject o : gameObjects) {
                 o.process(1f);

@@ -1,22 +1,24 @@
 package Engine;
 
+import Engine.Object.CanvasObject;
+
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 
 public class Draw extends JComponent {
 
-    private ArrayList<DrawObject> drawObjects = new ArrayList<>();
+    private ArrayList<CanvasObject> canvasObjects = new ArrayList<>();
 
-    public void addDrawObject(DrawObject drawObject) {
-        if (!drawObjects.contains(drawObject)) {
-            drawObjects.add(drawObject);
+    public void addCanvasObject(CanvasObject canvasObject) {
+        if (!canvasObjects.contains(canvasObject)) {
+            canvasObjects.add(canvasObject);
         }
     }
 
     @Override
     public void paint(Graphics g) {
-        for (DrawObject o: drawObjects) {
+        for (CanvasObject o: canvasObjects) {
             o.drawObject(g);
         }
     }

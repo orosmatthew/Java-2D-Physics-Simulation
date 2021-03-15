@@ -1,9 +1,9 @@
-import Engine.Object.DrawObject;
+import Engine.Object.CanvasObject;
 import Engine.Type.Vector2;
 
 import java.awt.*;
 
-public class SquarePrimitive extends DrawObject {
+public class SquarePrimitive extends CanvasObject {
 
     private Vector2 position;
     private Vector2 size;

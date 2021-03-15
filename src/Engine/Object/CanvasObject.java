@@ -4,7 +4,7 @@ import Engine.Type.Vector2;
 
 import java.awt.*;
 
-public abstract class DrawObject extends GameObject {
+public abstract class CanvasObject extends GameObject {
 
     private Vector2 position = new Vector2();
 
