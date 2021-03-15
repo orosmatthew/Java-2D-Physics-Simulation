@@ -16,7 +16,7 @@ public class Java2DPhysicsSimulation extends Game {
     }
 
     @Override
-    public void process(float delta) {
+    public void process(double delta) {
 
     }
 }

@@ -10,6 +10,10 @@ public abstract class Game {
     private ArrayList<GameObject> gameObjects;
     private Window window;
     private Canvas canvas;
+    private boolean isRunning;
+    private final int FPS = 144;
+    private final int UPS = 60;
+    private boolean isPrintingTimings;
 
     public Game(Window window, Canvas canvas) {
         this.window = window;
@@ -34,27 +38,66 @@ public abstract class Game {
         canvas.addDrawObject(canvasObject);
     }
 
+    public final void stopLoop() {
+        isRunning = false;
+    }
+
     public final void startLoop() {
-        while (true) {
 
-            process(1f);
+        isRunning = true;
 
-            for (GameObject o : gameObjects) {
-                o.process(1f);
+        long initialTime = System.nanoTime();
+        final double timeU = 1000000000 / UPS;
+        final double timeF = 1000000000 / FPS;
+        double deltaU = 0, deltaF = 0;
+        int frames = 0, ticks = 0;
+        long timer = System.currentTimeMillis();
+
+        while (isRunning) {
+
+            long currentTime = System.nanoTime();
+            deltaU += (currentTime - initialTime) / timeU;
+            deltaF += (currentTime - initialTime) / timeF;
+            initialTime = currentTime;
+
+            if (deltaU >= 1) {
+                update(deltaU);
+                ticks++;
+                deltaU--;
             }
 
-            canvas.paintImmediately(0, 0, (int)window.getWindowSize().getX(), (int)window.getWindowSize().getY());
+            if (deltaF >= 1) {
+                render(deltaF);
+                frames++;
+                deltaF--;
+            }
 
-            try {
-                Thread.sleep((long)16.6);
-            } catch (InterruptedException e) {
-                System.err.println("Interrupted!: " + e.getMessage());;
+            if (System.currentTimeMillis() - timer > 1000) {
+                if (isPrintingTimings) {
+                    System.out.println(String.format("Update Rate: %s, Framerate: %s", ticks, frames));
+                }
+                frames = 0;
+                ticks = 0;
+                timer += 1000;
             }
         }
+    }
+    private final void update(double delta) {
+
+        process(delta);
+
+        for (GameObject o : gameObjects) {
+            o.process(delta);
+        }
+
+    }
+
+    private final void render(double delta) {
+        canvas.paintImmediately(0, 0, (int)window.getWindowSize().getX(), (int)window.getWindowSize().getY());
     }
 
     public abstract void init();
 
-    public abstract void process(float delta);
+    public abstract void process(double delta);
 
 }
