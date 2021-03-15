@@ -6,7 +6,7 @@ public class Main {
         Game game = new Game();
         game.createWindow();
         SquarePrimitive square = new SquarePrimitive(new Vector2(0, 0), new Vector2(50, 50));
-        game.addGameObject(square);
+        game.addDrawObject(square);
         game.loop();
     }
 }

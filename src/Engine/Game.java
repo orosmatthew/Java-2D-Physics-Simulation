@@ -22,10 +22,11 @@ public class Game {
         if (!gameObjects.contains(gameObject)) {
             gameObjects.add(gameObject);
         }
-        if (gameObject instanceof DrawObject) {
-            draw.addDrawObject((DrawObject)gameObject);
-        }
+    }
 
+    public void addDrawObject(DrawObject drawObject) {
+        addGameObject(drawObject);
+        draw.addDrawObject(drawObject);
     }
 
     private Vector2 windowSize;
