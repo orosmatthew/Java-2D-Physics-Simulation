@@ -59,13 +59,15 @@ public class Game {
 
     public void createWindow() {
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        window.setSize((int)windowSize.getX(), (int)windowSize.getY());
+        //window.setSize((int)windowSize.getX(), (int)windowSize.getY());
+        window.getContentPane().setPreferredSize(new Dimension((int)windowSize.getX(), (int)windowSize.getY()));
+        window.pack();
         window.setResizable(isResizable);
         window.setVisible(true);
         window.getContentPane().setBackground(backgroundColor);
     }
 
-    public void loop() throws InterruptedException {
+    public void startLoop() throws InterruptedException {
         while (true) {
             for (GameObject o : gameObjects) {
                 o.process(1f);
