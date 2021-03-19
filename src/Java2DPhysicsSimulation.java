@@ -1,6 +1,5 @@
 import Engine.Canvas;
 import Engine.Game;
-import Engine.Type.Vector2;
 import Engine.Window;
 
 public class Java2DPhysicsSimulation extends Game {
@@ -11,7 +10,7 @@ public class Java2DPhysicsSimulation extends Game {
 
     @Override
     public void init() {
-        SquarePrimitive square = new SquarePrimitive(new Vector2(0, 0), new Vector2(300, 300));
+        SquarePrimitive square = new SquarePrimitive();
         addCanvasObject(square);
     }
 

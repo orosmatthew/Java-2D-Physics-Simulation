@@ -10,7 +10,7 @@ public class Canvas extends JComponent {
 
     private ArrayList<CanvasObject> canvasObjects = new ArrayList<>();
 
-    public void addDrawObject(CanvasObject canvasObject) {
+    public void addCanvasObject(CanvasObject canvasObject) {
         if (!canvasObjects.contains(canvasObject)) {
             canvasObjects.add(canvasObject);
         }

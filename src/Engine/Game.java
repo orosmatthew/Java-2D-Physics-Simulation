@@ -26,16 +26,12 @@ public abstract class Game {
         if (!gameObjects.contains(gameObject)) {
             gameObjects.add(gameObject);
         }
-    }
-    public void addDrawObject(CanvasObject canvasObject) {
-        addGameObject(canvasObject);
-        canvas.addDrawObject(canvasObject);
-
+        gameObject.init();
     }
 
     public final void addCanvasObject(CanvasObject canvasObject) {
+        canvas.addCanvasObject(canvasObject);
         addGameObject(canvasObject);
-        canvas.addDrawObject(canvasObject);
     }
 
     public final void stopLoop() {
@@ -93,7 +89,7 @@ public abstract class Game {
     }
 
     private final void render(double delta) {
-        canvas.paintImmediately(0, 0, (int)window.getWindowSize().getX(), (int)window.getWindowSize().getY());
+        canvas.paintImmediately(0, 0, (int)window.getWindowSize().x, (int)window.getWindowSize().y);
     }
 
     public abstract void init();

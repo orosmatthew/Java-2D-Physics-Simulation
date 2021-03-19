@@ -37,7 +37,7 @@ public class Window {
         SwingUtilities.updateComponentTreeUI(window);
         window.getContentPane().add(canvas);
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        window.getContentPane().setPreferredSize(new Dimension((int)windowSize.getX(), (int)windowSize.getY()));
+        window.getContentPane().setPreferredSize(new Dimension((int)windowSize.x, (int)windowSize.y));
         window.pack();
         window.setResizable(isResizable);
         window.setVisible(true);
